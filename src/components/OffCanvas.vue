@@ -107,8 +107,8 @@ const sendIsActiveCanvas = (): void => {
     emit('sendIsActiveCanvas', newValue)
 }
 const checkoutSuccess = (): void => {
-    cart.clearCart();
     router.push({ name: 'checkout-success' });
+    cart.clearCart();
 }
 
 
