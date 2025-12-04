@@ -94,7 +94,7 @@ export const useCartStore = defineStore('cart', () => {
         }
     }
 
-    // WATCH: otomatis save ke localStorage setiap kali items berubah
+ 
     watch(items, saveToStorage, { deep: true })
 
     return {
