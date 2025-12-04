@@ -89,9 +89,6 @@ const handleAddToCart = (p: Product) => {
         price: p.price,
         image: p.image
     })
-
-    console.log("oke");
-
 }
 
 

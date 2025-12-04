@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import nProgress from '@/types/nprogress';
+import nProgress from "nprogress"
 
 
 const router = createRouter({

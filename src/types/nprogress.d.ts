@@ -1,39 +1,37 @@
-declare namespace nProgress {
+declare module "nprogress" {
     interface NProgressOptions {
-        minimum: number;
-        template: string;
-        easing: string;
-        speed: number;
-        trickle: boolean;
-        trickleSpeed: number;
-        showSpinner: boolean;
-        parent: string;
-        positionUsing: string;
-        barSelector: string;
-        spinnerSelector: string;
+        minimum?: number
+        template?: string
+        easing?: string
+        speed?: number
+        trickle?: boolean
+        trickleSpeed?: number
+        showSpinner?: boolean
+        parent?: string
+        positionUsing?: string
+        barSelector?: string
+        spinnerSelector?: string
     }
 
-    interface NProgress {
-        version: string;
-        settings: NProgressOptions;
-        status: number | null;
+    interface INProgress {
+        version: string
+        settings: NProgressOptions
+        status: number | null
 
-        configure(options: Partial<NProgressOptions>): NProgress;
-        set(number: number): NProgress;
-        isStarted(): boolean;
-        start(): NProgress;
-        done(force?: boolean): NProgress;
-        inc(amount?: number): NProgress;
-        trickle(): NProgress;
+        configure(options: Partial<NProgressOptions>): INProgress
+        set(n: number): INProgress
+        isStarted(): boolean
+        start(): INProgress
+        done(force?: boolean): INProgress
+        inc(amount?: number): INProgress
+        trickle(): INProgress
 
-        /* Internal */
-
-        render(fromStart?: boolean): HTMLDivElement;
-        remove(): void;
-        isRendered(): boolean;
-        getPositioningCSS(): "translate3d" | "translate" | "margin";
+        render(fromStart?: boolean): HTMLDivElement
+        remove(): void
+        isRendered(): boolean
+        getPositioningCSS(): "translate3d" | "translate" | "margin"
     }
+
+    const NProgress: INProgress
+    export default NProgress
 }
-
-declare const nProgress: nProgress.NProgress;
-export = nProgress;
