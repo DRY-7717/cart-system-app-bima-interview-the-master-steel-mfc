@@ -26,7 +26,6 @@ nProgress.configure({
 });
 
 router.beforeEach((to, from, next) => {
-  // Jika cuma beda hash (misal #about), jangan jalankan NProgress
   if (to.path === from.path && to.hash !== from.hash) {
     return next();
   }
