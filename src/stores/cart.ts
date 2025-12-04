@@ -13,20 +13,20 @@ export type CartItem = {
 const STORAGE_KEY = 'cart-items'
 
 export const useCartStore = defineStore('cart', () => {
-    // STATE - load dari localStorage saat inisialisasi
+
     const items = ref<CartItem[]>(loadFromStorage())
 
-    // GETTER: total items di cart
+    
     const totalItems = computed(() =>
         items.value.reduce((t, item) => t + item.quantity, 0)
     )
 
-    // GETTER: total harga
+   
     const totalPrice = computed(() =>
         items.value.reduce((t, item) => t + item.price * item.quantity, 0)
     )
 
-    // ACTIONS
+    
     function addToCart(product: Omit<CartItem, 'quantity'>) {
         const existing = items.value.find(item => item.id === product.id)
 
@@ -75,7 +75,7 @@ export const useCartStore = defineStore('cart', () => {
         }
     }
 
-    // HELPER FUNCTIONS
+   
     function loadFromStorage(): CartItem[] {
         try {
             const stored = localStorage.getItem(STORAGE_KEY)

@@ -51,13 +51,17 @@
                     <p class="font-medium text-secondary text-lg">Total Harga</p>
                     <p class="font-bold text-primary text-2xl">{{ formatPrice(cart.totalPrice) }}</p>
                 </div>
-                <button
+
+
+                <button @click="checkoutSuccess" :disabled="cart.totalItems == 0"
                     class="w-full bg-primary text-white py-3 px-4 rounded-lg font-semibold flex items-center justify-center gap-x-2 mb-3">
                     <div class="box_icon_checkout">
                         <ShoppingBasket :size="20" />
                     </div>
                     <p>Checkout Sekarang</p>
                 </button>
+
+
                 <button @click="cart.clearCart"
                     class="w-full bg-slate-500 text-white py-3 px-4 rounded-lg font-semibold flex items-center justify-center gap-x-2">
                     <div class="box_icon_checkout">
@@ -79,7 +83,10 @@
 import { ShoppingBasket, X, Trash2 } from 'lucide-vue-next';
 import { formatPrice } from '../../utils/Helper';
 import { useCartStore } from '@/stores/cart';
+import { useRouter } from 'vue-router';
 
+
+const router = useRouter();
 
 const cart = useCartStore();
 
@@ -98,6 +105,10 @@ const emit = defineEmits<{
 const sendIsActiveCanvas = (): void => {
     const newValue = !props.isActiveCanvas
     emit('sendIsActiveCanvas', newValue)
+}
+const checkoutSuccess = (): void => {
+    cart.clearCart();
+    router.push({ name: 'checkout-success' });
 }
 
 
