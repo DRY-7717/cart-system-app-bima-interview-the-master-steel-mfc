@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-
+import nProgress from '@/types/nprogress';
 
 
 const router = createRouter({
@@ -18,24 +18,24 @@ const router = createRouter({
   ],
 })
 
-// nProgress.configure({
-//   showSpinner: false,
-//   speed: 500,
-//   minimum: 0.3,
-// });
+nProgress.configure({
+  showSpinner: false,
+  speed: 500,
+  minimum: 0.3,
+});
 
-// router.beforeEach((to, from, next) => {
-//   if (to.path === from.path && to.hash !== from.hash) {
-//     return next();
-//   }
+router.beforeEach((to, from, next) => {
+  if (to.path === from.path && to.hash !== from.hash) {
+    return next();
+  }
 
-//   nProgress.start();
-//   next();
-// });
+  nProgress.start();
+  next();
+});
 
-// router.afterEach(() => {
-//   nProgress.done();
-// });
+router.afterEach(() => {
+  nProgress.done();
+});
 
 
 export default router
