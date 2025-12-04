@@ -1,7 +1,7 @@
 <template>
     <div class="card rounded-xl overflow-hidden shadow-lg bg-white border border-slate-300">
-        <div class="card_header">
-            <img src="/src/assets/laptop.webp" class="w-full object-cover object-center" alt="Laptop Gaming">
+        <div class="card_header h-[250px] w-full overflow-hidden">
+            <img :src="image" class="w-full h-full object-cover object-center" :alt="title">
         </div>
         <div class="card_body py-6 px-4">
             <span

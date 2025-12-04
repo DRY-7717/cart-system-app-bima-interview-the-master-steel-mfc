@@ -12,14 +12,14 @@
                 <X :size="28" @click="sendIsActiveCanvas" class="cursor-pointer" />
 
             </div>
-            <div class="offcanvas_body p-6 h-[calc(100%-80px)] overflow-y-auto">
+            <div class="offcanvas_body p-6 h-[calc(100%-33%)] overflow-y-auto">
 
                 <div v-if="cart.totalItems != 0">
                     <div v-for="(item, index) in cart.items" :key="index"
                         class="item_cart w-full p-3 rounded-lg bg-slate-200 mb-3">
                         <div class="flex gap-x-4">
                             <div class="box_image_product w-24 h-24 rounded-lg overflow-hidden">
-                                <img :src="item.image" alt="Laptop Gaming"
+                                <img :src="item.image" :alt="item.title"
                                     class="w-full h-full object-cover object-center">
                             </div>
                             <div class="info_product flex-1 ">

@@ -16,6 +16,12 @@
 import { ref } from 'vue';
 import CardProduct from './CardProduct.vue';
 import { useCartStore } from '@/stores/cart';
+import headphone from '@/assets/headphone.webp';
+import keyboard from '@/assets/keyboard.webp';
+import laptop from '@/assets/laptop.webp';
+import monitor from '@/assets/monitor.webp';
+import mouse from '@/assets/mouse.jpeg';
+import ssd from '@/assets/ssd.jpg';
 
 
 const cart = useCartStore();
@@ -34,21 +40,42 @@ const products = ref<Product[]>([
         category: 'elektronik',
         title: 'Laptop Gaming',
         price: 15000000,
-        image: '/src/assets/laptop.webp',
+        image: laptop,
     },
     {
         id: 2,
-        category: 'elektronik',
-        title: 'Laptop Ultrabook',
-        price: 12000000,
-        image: '/src/assets/laptop.webp',
+        category: 'audio',
+        title: 'Headphone Bluetooth',
+        price: 200000,
+        image: headphone,
     },
     {
         id: 3,
+        category: 'aksesoris',
+        title: 'Keyboard Mechanical',
+        price: 500000,
+        image: keyboard,
+    },
+    {
+        id: 4,
         category: 'elektronik',
-        title: 'Laptop Workstation',
-        price: 20000000,
-        image: '/src/assets/laptop.webp',
+        title: 'Monitor 24 Inch',
+        price: 2000000,
+        image: monitor,
+    },
+    {
+        id: 5,
+        category: 'aksesoris',
+        title: 'Mouse Wireless',
+        price: 100000,
+        image: mouse,
+    },
+    {
+        id: 6,
+        category: 'elektronik',
+        title: 'SSD 1TB',
+        price: 1200000,
+        image: ssd,
     },
 ]);
 
@@ -64,7 +91,7 @@ const handleAddToCart = (p: Product) => {
     })
 
     console.log("oke");
-    
+
 }
 
 
