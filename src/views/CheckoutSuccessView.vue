@@ -2,7 +2,7 @@
 
     <section class=" py-28">
         <div class="container w-full max-w-340 px-4 sm:px-6 lg:px-8 mx-auto ">
-            <div class="illustration_box w-[500px] mx-auto">
+            <div class="illustration_box w-full sm:w-[500px] mx-auto">
                 <img src="/src/assets/checkout_success.svg" alt="Checkout Success Illustration"
                     class="w-full h-full object-cover object-center">
             </div>

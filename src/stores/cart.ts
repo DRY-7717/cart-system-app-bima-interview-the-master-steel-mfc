@@ -16,17 +16,17 @@ export const useCartStore = defineStore('cart', () => {
 
     const items = ref<CartItem[]>(loadFromStorage())
 
-    
+
     const totalItems = computed(() =>
         items.value.reduce((t, item) => t + item.quantity, 0)
     )
 
-   
+
     const totalPrice = computed(() =>
         items.value.reduce((t, item) => t + item.price * item.quantity, 0)
     )
 
-    
+
     function addToCart(product: Omit<CartItem, 'quantity'>) {
         const existing = items.value.find(item => item.id === product.id)
 
@@ -75,7 +75,7 @@ export const useCartStore = defineStore('cart', () => {
         }
     }
 
-   
+
     function loadFromStorage(): CartItem[] {
         try {
             const stored = localStorage.getItem(STORAGE_KEY)
@@ -94,7 +94,7 @@ export const useCartStore = defineStore('cart', () => {
         }
     }
 
- 
+
     watch(items, saveToStorage, { deep: true })
 
     return {
